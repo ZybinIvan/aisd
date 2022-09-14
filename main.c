@@ -93,7 +93,6 @@ int main() {
     char *s = "10001010";
 
     char *bytes = getBytesArray(s);
-
     for (int i = 0; i < 1; ++i) {
         printf("%d", bytes[i]);
     }
