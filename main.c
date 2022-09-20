@@ -19,19 +19,11 @@ void printVar(void *a, size_t size) {
         bytes[i] = var[i];
     }
 
-    for (int i = 0; i < size; ++i) {
-        printf("%d\n", bytes[i]);
-    }
-
     for (int i = size - 1; i >= 0; --i)
         printByte(bytes[i]);
-
-    printf("\n");
-
-    int *v = bytes;
-    printf("%ld\n", *v);
 }
 
+// Программа возвращает массив байтов, составленный из полученной строки
 char *getBytesArray(char *str) {
     size_t size = strlen(str) / 8;
     char *bytes = calloc(size / 8, sizeof(char));
@@ -48,28 +40,47 @@ char *getBytesArray(char *str) {
         index++;
     }
 
-    for (int i = 0; i < size; ++i) {
-        printf("%d\n", bytes[i]);
-    }
-
-    for (int i = size - 1; i >= 0; --i)
-        printByte(bytes[i]);
-
-    printf("\n");
-
     return bytes;
 }
 
 int main() {
-    int v = 12345; // 00000000000000000011000000111001
-    printVar(&v, sizeof(int));
-    printf("\n");
+//    int n;
+//    printf("Input size of array:\n");
+//    scanf("%d", &n);
+//
+//    float *a = malloc(n * sizeof(int));
+//    printf("Input array:\n");
+//    for (int i = 0; i < n; ++i) {
+//        scanf("%f", &a[i]);
+//    }
+//
+//    printf("\nBinary form:\n");
+//    printVar(a, sizeof(float) * n);
 
-    char *str = "00000000000000000011000000111001";
-    char *bytes = getBytesArray(str);
 
-    int *var = (int *) bytes;
-    printf("%d", var);
+//    printf("\n");
+//    char *str = "010000000110000000000000000000000100000000011001100110011001101000111111100110011001100110011010";
+//    char *bytes = getBytesArray(str);
+//
+//    float *b = (float *) bytes;
+//    for (int i = 0; i < 3; ++i) {
+//        printf("%f ", b[i]);
+//    }
+
+//    char *binaryForm = "01000000011000000000000000000000"
+//                       "01000000000110011001100110011010"
+//                       "00111111100110011001100110011010";
+//    char *bytes = getBytesArray(binaryForm);
+//
+//    float *array = (float *) bytes;
+//    for (int i = 0; i < 3; ++i) {
+//        printf("%f ", array[i]);
+//    }
+
+    float a[5] = {12.115f, 2.225f, -15.1942f, 0, 100};
+    printVar(a, sizeof(float) * 5);
+
+
 
     return 0;
 }
